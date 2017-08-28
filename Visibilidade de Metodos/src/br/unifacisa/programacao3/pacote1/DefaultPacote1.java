@@ -1,37 +1,48 @@
 package br.unifacisa.programacao3.pacote1;
 
-public class DefaultPacote1 {
-	
-	private int atributo;
-	
-	
-	
-	public int testeAtributo1() {
-		return this.atributo;
+import br.unifacisa.programacao3.pacote2.PublicaPacote2;
+
+class DefaultPacote1 {
+
+	public DefaultPacote1() {
+
+		DefaultPacote1 defaultPacote1 = new DefaultPacote1();
+		PublicaPacote1 publicaPacote1 = new PublicaPacote1();
+		// A Classe não está visível por ser uma classe default de outro pacote.
+		// DefaultPacote2 defaultPacote2 = new DefaultPacote2();
+		PublicaPacote2 publicaPacote2 = new PublicaPacote2();
+
+		defaultPacote1.testeMetodoDefault();
+		defaultPacote1.testeMetodoPrivado();
+		defaultPacote1.testeMetodoProtected();
+		defaultPacote1.testeMetodoPubico();
+
+		publicaPacote1.testeMetodoDefault();
+		publicaPacote1.testeMetodoProtected();
+		publicaPacote1.testeMetodoPubico();
+		// O método não está visivel por ser um método privado de outro classe mesmo
+		// sendo do mesmo pacote.
+		// publicaPacote1.testeMetodoPrivado();
+
+		publicaPacote2.testeMetodoPubico();
+		// Os Métodos não podem ser vistos pois não podem ser acessados por outra classe
+		// de outro pacote.
+		// publicaPacote2.testeMetodoDefault();
+		// publicaPacote2.testeMetodoPrivado();
+		// publicaPacote2.testeMetodoProtected();
+
 	}
-	
-	private int testeAtributo2() {
-		return this.atributo;
+
+	public void testeMetodoPubico() {
 	}
-	
-	protected int testeAtributo3() {
-		return this.atributo;
+
+	private void testeMetodoPrivado() {
 	}
-	
-	int testeAtributo4() {
-		return this.atributo;
+
+	protected void testeMetodoProtected() {
 	}
-	
-	
-	public static void main(String[] args) {
-		PublicaPacote1 teste = new PublicaPacote1();
-		teste.testeAtributo1();
-		//Não está visivel, pois eh um metodo privado.
-		teste.testeAtributo2();
-		teste.testeAtributo3();
-		teste.testeAtributo4();
-	
-		
-		}
+
+	void testeMetodoDefault() {
+	}
 
 }
